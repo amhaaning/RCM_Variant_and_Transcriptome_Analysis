@@ -4,7 +4,7 @@ library(dplyr)
 library(viridisLite)
 library(scales)
 
-setwd("C:/Users/ahaaning/OneDrive - Indiana University/Manuscripts/RCM_Variants_and_RNAseq/RCM_RNAseq/")
+setwd(".")
 
 #Make a Sankey diagram - connects genes with their associated GO terms####
 
