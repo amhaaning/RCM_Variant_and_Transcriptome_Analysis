@@ -3,7 +3,7 @@ library(gridExtra)
 library(dplyr)
 library(stringr)
 
-setwd("C:/Users/ahaaning/OneDrive - Indiana University/Manuscripts/RCM_Variants_and_RNAseq/New_Variants/")
+setwd(".")
 
 #SNV metrics distributions - variant level metrics####
 
