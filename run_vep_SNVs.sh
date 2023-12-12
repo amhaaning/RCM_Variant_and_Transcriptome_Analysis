@@ -30,7 +30,7 @@ filter_vep -i $vcf_in \
 vcf_in=RCM_WES_Apr18_Joint_SNVs_SelectVariants_Final_Anno_Filt_Max_AF.vcf
 vcf_out=RCM_WES_Apr18_Joint_SNVs_SelectVariants_Final_Filt_Anno_caseControl.vcf
 
-java -jar /N/project/Ware-lab_NGS/Software_Packages/snpEff/SnpSift.jar \
+java -jar ./Software_Packages/snpEff/SnpSift.jar \
     caseControl "++--++-+++++++-+++" \
     $vcf_in > $vcf_out
 
