@@ -5,7 +5,7 @@ library(AnnotationDbi)
 library(reshape2)
 library(pheatmap)
 
-setwd("C:/Users/ahaaning/OneDrive - Indiana University/Manuscripts/RCM_Variants_and_RNAseq/RCM_RNAseq/")
+setwd("")
 
 #Read in expression data
 data <- read.delim("EdgeR_results_qlf_test_all_genes.txt")
