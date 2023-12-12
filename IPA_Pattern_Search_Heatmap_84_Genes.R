@@ -1,6 +1,6 @@
 library(pheatmap)
 
-setwd("C:/Users/ahaaning/OneDrive - Indiana University/Manuscripts/RCM_Variants_and_RNAseq/IPA_Analysis/")
+setwd(".")
 
 #Read in data from IPA from heatmap
 Heatmap_data <- read.delim("Heatmap_Data.txt",check.names = F)
