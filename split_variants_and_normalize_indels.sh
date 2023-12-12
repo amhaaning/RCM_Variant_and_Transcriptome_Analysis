@@ -7,7 +7,7 @@
 #SBATCH --mail-user=ahaaning@iu.edu 
 #SBATCH --mail-type=ALL
 
-cd /N/project/WareLab_ARP_NGS/RCM_VCFs
+cd .
 
 vcf_in=RCM_WES_Apr18_Joint.vcf.gz
 vcf_SNV_out=RCM_WES_Apr18_Joint_SNVs.vcf
@@ -21,6 +21,8 @@ vcf_in=RCM_WES_Apr18_Joint_INDELs.vcf
 vcf_out=RCM_WES_Apr18_Joint_INDELs_Norm.vcf
 
 #Normalize indels
-gatk --java-options "-Xms50g -Xmx50g -XX:ParallelGCThreads=5" LeftAlignAndTrimVariants -R /N/project/Ware-lab_NGS/References/gatk_resource_bundle/Homo_sapiens_assembly38.fasta -V $vcf_in -O $vcf_out --max-indel-length 1000 --max-leading-bases 2000
+gatk --java-options "-Xms50g -Xmx50g -XX:ParallelGCThreads=5" LeftAlignAndTrimVariants \
+  -R /N/project/Ware-lab_NGS/References/gatk_resource_bundle/Homo_sapiens_assembly38.fasta \
+  -V $vcf_in -O $vcf_out --max-indel-length 1000 --max-leading-bases 2000
 
 
