@@ -2,7 +2,7 @@ library(dplyr)
 library(networkD3)
 
 #Set working directory
-setwd("C:/Users/ahaaning/OneDrive - Indiana University/Manuscripts/RCM_Variants_and_RNAseq/RCM_RNAseq/topGO_Enrichment_Results/")
+setwd(".")
 
 #Read in top 10 GO terms (fold-enrichment > 1.5 and then ranked by p-value)
 topGO_Terms <- read.delim("Top10_GO_Terms_pval_and_fold_enrichment_1.5.txt",header=F)
