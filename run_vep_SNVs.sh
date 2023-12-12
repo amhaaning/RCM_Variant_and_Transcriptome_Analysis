@@ -9,13 +9,13 @@
 
 module load perl
 
-cd /N/project/WareLab_ARP_NGS/RCM_VCFs
+cd .
 
 vcf_in=RCM_WES_Apr18_Joint_SNVs_SelectVariants_Final.vcf
 vcf_out=RCM_WES_Apr18_Joint_SNVs_SelectVariants_Final_Anno.vcf
 
 #Use vep to annotate quality filtered VCF
-vep --cache --dir_cache /N/project/Ware-lab_NGS/Software_Packages/ensembl_vep_cache \
+vep --cache --dir_cache ./Software_Packages/ensembl_vep_cache \
     -i $vcf_in --vcf -o $vcf_out --everything
 
 vcf_in=RCM_WES_Apr18_Joint_SNVs_SelectVariants_Final_Anno.vcf
@@ -38,29 +38,28 @@ java -jar /N/project/Ware-lab_NGS/Software_Packages/snpEff/SnpSift.jar \
 vcf_in=RCM_WES_Apr18_Joint_SNVs_SelectVariants_Final_Filt_Anno_caseControl.vcf
 vcf_out=RCM_WES_Apr18_Joint_SNVs_SelectVariants_Final_Filt_Anno_caseControl_Filt.vcf
 
-java -jar /N/project/Ware-lab_NGS/Software_Packages/snpEff/SnpSift.jar filter \
+java -jar ./Software_Packages/snpEff/SnpSift.jar filter \
     "Controls[2]=0" $vcf_in > $vcf_out
     
-
 #Run vep again on final variants
 vcf_in=RCM_WES_Apr18_Joint_SNVs_SelectVariants_Final_Filt_Anno_caseControl_Filt.vcf
 
-vep --cache --dir_cache /N/project/Ware-lab_NGS/Software_Packages/ensembl_vep_cache \
+vep --cache --dir_cache ./Software_Packages/ensembl_vep_cache \
     -i $vcf_in \
-    --dir_plugins /N/project/Ware-lab_NGS/Software_Packages/ensembl_vep_plugins/ \
-    --plugin CADD,snvs=/N/project/Ware-lab_NGS/Software_Packages/ensembl_vep_plugins/whole_genome_SNVs_inclAnno.tsv.gz \
-    --plugin AlphaMissense,file=/N/project/Ware-lab_NGS/Software_Packages/ensembl_vep_plugins/AlphaMissense_hg38.tsv.gz \
-    --plugin SpliceAI,snv=/N/project/Ware-lab_NGS/Software_Packages/ensembl_vep_plugins/spliceai_scores.raw.snv.hg38.vcf.gz,indel=/N/project/Ware-lab_NGS/Software_Packages/ensembl_vep_plugins/spliceai_scores.raw.indel.hg38.vcf.gz \
-    --plugin PrimateAI,/N/project/Ware-lab_NGS/Software_Packages/ensembl_vep_plugins/PrimateAI_scores_v0.2_GRCh38_sorted.tsv.bgz \
+    --dir_plugins ./Software_Packages/ensembl_vep_plugins/ \
+    --plugin CADD,snvs=./Software_Packages/ensembl_vep_plugins/whole_genome_SNVs_inclAnno.tsv.gz \
+    --plugin AlphaMissense,file=./Software_Packages/ensembl_vep_plugins/AlphaMissense_hg38.tsv.gz \
+    --plugin SpliceAI,snv=./Software_Packages/ensembl_vep_plugins/spliceai_scores.raw.snv.hg38.vcf.gz,indel=./Software_Packages/ensembl_vep_plugins/spliceai_scores.raw.indel.hg38.vcf.gz \
+    --plugin PrimateAI,./Software_Packages/ensembl_vep_plugins/PrimateAI_scores_v0.2_GRCh38_sorted.tsv.bgz \
     -o RCM_WES_Apr18_Joint_SNVs_FINAL_Anno.vcf --force --everything --vcf --buffer_size 1000
 
-vep --cache --dir_cache /N/project/Ware-lab_NGS/Software_Packages/ensembl_vep_cache \
+vep --cache --dir_cache ./Software_Packages/ensembl_vep_cache \
     -i $vcf_in \
-    --dir_plugins /N/project/Ware-lab_NGS/Software_Packages/ensembl_vep_plugins/ \
-    --plugin CADD,snvs=/N/project/Ware-lab_NGS/Software_Packages/ensembl_vep_plugins/whole_genome_SNVs_inclAnno.tsv.gz \
-    --plugin AlphaMissense,file=/N/project/Ware-lab_NGS/Software_Packages/ensembl_vep_plugins/AlphaMissense_hg38.tsv.gz \
-    --plugin SpliceAI,snv=/N/project/Ware-lab_NGS/Software_Packages/ensembl_vep_plugins/spliceai_scores.raw.snv.hg38.vcf.gz,indel=/N/project/Ware-lab_NGS/Software_Packages/ensembl_vep_plugins/spliceai_scores.raw.indel.hg38.vcf.gz \
-    --plugin PrimateAI,/N/project/Ware-lab_NGS/Software_Packages/ensembl_vep_plugins/PrimateAI_scores_v0.2_GRCh38_sorted.tsv.bgz \
+    --dir_plugins ./Software_Packages/ensembl_vep_plugins/ \
+    --plugin CADD,snvs=./Software_Packages/ensembl_vep_plugins/whole_genome_SNVs_inclAnno.tsv.gz \
+    --plugin AlphaMissense,file=./Software_Packages/ensembl_vep_plugins/AlphaMissense_hg38.tsv.gz \
+    --plugin SpliceAI,snv=./Software_Packages/ensembl_vep_plugins/spliceai_scores.raw.snv.hg38.vcf.gz,indel=./Software_Packages/ensembl_vep_plugins/spliceai_scores.raw.indel.hg38.vcf.gz \
+    --plugin PrimateAI,./Software_Packages/ensembl_vep_plugins/PrimateAI_scores_v0.2_GRCh38_sorted.tsv.bgz \
     -o RCM_WES_Apr18_Joint_SNVs_FINAL_Anno.txt --force --tab --everything --buffer_size 1000
 
 module load vcftools
