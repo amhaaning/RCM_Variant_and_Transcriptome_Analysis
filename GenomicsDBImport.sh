@@ -11,16 +11,16 @@
 ulimit -c unlimited
 
 #Change to directory containing GVCFs
-cd /N/project/WareLab_ARP_NGS/ILMN_249_Ware_WESseq18_Apr2018_GVCF/
+cd ./GVCF
 
 #Path to cohort sample map
-samples=/N/project/WareLab_ARP_NGS/RCM_VCFs/scripts/cohort.sample_map
+samples=./scripts/cohort.sample_map
 
 #Path to genomicsdb workspace
-genomicsdb=/N/project/WareLab_ARP_NGS/ILMN_249_Ware_WESseq18_Apr2018_GVCF/gatk_genomicsdb
+genomicsdb=./GVCF/gatk_genomicsdb
 
 #Path to file containing intervals
-intervals=/N/project/WareLab_ARP_NGS/WESeq18_Apr2018_Bait_and_Target_Files/S07604514_Regions_target.interval_list
+intervals=./WESeq18_Apr2018_Bait_and_Target_Files/S07604514_Regions_target.interval_list
 
 gatk --java-options "-Xms400g -Xmx400g -XX:ParallelGCThreads=20" GenomicsDBImport \
      --genomicsdb-workspace-path $genomicsdb \
