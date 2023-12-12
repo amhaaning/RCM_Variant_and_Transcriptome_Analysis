@@ -1,5 +1,5 @@
 #Set working directory
-setwd("/N/project/WareLab_ARP_NGS/RCM_VCFs/")
+setwd(".")
 
 #Read in Ensembl gene IDs
 genes <- read.delim("ensembl_IDs_1846_genes.txt",header=F)
