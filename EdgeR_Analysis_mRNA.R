@@ -6,7 +6,7 @@ library(AnnotationDbi)
 library(pheatmap)
 library(ggtext)
 
-setwd("C:/Users/ahaaning/OneDrive - Indiana University/Manuscripts/RCM_Variants_and_RNAseq/RCM_RNAseq/")
+setwd("")
 
 #Read in expression data
 data <- read.delim("HS_062_ILMN_204_Ware_mRNAseq18_Dec2017_STAR_featureCounts_edgeR_02202018.txt")
